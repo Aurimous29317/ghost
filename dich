@@ -1,0 +1,7 @@
+# Задайте URL файла
+$url = "https://putty.org.ru/files/putty-0.73-ru-17/putty.exe"
+$tempPath = [System.IO.Path]::GetTempPath()
+$fileName = "downloaded.exe"
+$filePath = Join-Path $tempPath $fileName
+Invoke-WebRequest -Uri $url -OutFile $filePath
+Start-Process -FilePath $filePath
